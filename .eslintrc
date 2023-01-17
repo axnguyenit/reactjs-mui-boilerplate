@@ -7,13 +7,27 @@
     "plugin:import/typescript",
     "plugin:react/jsx-runtime",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "plugin:unicorn/recommended",
+    "plugin:sonarjs/recommended"
   ],
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "ignorePatterns": [".eslintrc"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -24,13 +38,96 @@
     "simple-import-sort",
     "jsx-a11y",
     "react-hooks",
-    "prettier"
+    "prettier",
+    "unicorn",
+    "sonarjs"
   ],
   "rules": {
+    /**
+     * plugin:simple-import-sort
+     */
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    /**
+     * plugin:unicorn
+     */
+    "unicorn/no-null": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "kebabCase": true, // app-name
+          "camelCase": true, // appName
+          "pascalCase": true // AppName
+        }
+      }
+    ],
+    /**
+     * plugin:typescript-eslint
+     */
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "computed-property-spacing": "error",
-    "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"],
+        "filter": {
+          "regex": "^_.*$",
+          "match": false
+        }
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "prefix": ["I"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["PascalCase"],
+        "prefix": ["is", "should", "has", "can", "did", "will"]
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "require-await": "off",
+    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/type-annotation-spacing": "error",
+    "@typescript-eslint/unified-signatures": "error",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-duplicate-imports": ["error"],
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-unused-expressions": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -39,31 +136,163 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "semi": "error",
-    "semi-spacing": "error",
-    "space-before-blocks": "error",
-    "prettier/prettier": [
-      "warn",
+    /**
+     * plugin:eslint
+     */
+    "no-await-in-loop": "error",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "try" },
+      { "blankLine": "always", "prev": "try", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "block-like" },
+      { "blankLine": "always", "prev": "block-like", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "throw" },
+      { "blankLine": "always", "prev": "var", "next": "*" }
+    ],
+    "arrow-body-style": "error",
+    "arrow-parens": ["error", "always"],
+    "complexity": "off",
+    "no-restricted-imports": [
+      "error",
       {
-        "endOfLine": "auto",
-        "singleQuote": true
+        "paths": [
+          {
+            "name": "rxjs/Rx",
+            "message": "Please import directly from 'rxjs' instead"
+          }
+        ]
       }
     ],
-
-    // ES6
-    "arrow-spacing": "error",
-    "no-confusing-arrow": "error",
-    "no-duplicate-imports": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-multi-spaces": "error",
+    "no-useless-return": "error",
+    "no-else-return": "error",
+    "no-implicit-coercion": "error",
+    "constructor-super": "error",
+    "yoda": "error",
+    "strict": ["error", "never"],
+    "curly": "error",
+    "dot-notation": "error",
+    "eol-last": "error",
+    "eqeqeq": ["error", "smart"],
+    "guard-for-in": "error",
+    "id-match": "error",
+    "max-classes-per-file": ["error", 2],
+    "max-len": [
+      "error",
+      {
+        "code": 150
+      }
+    ],
+    "new-parens": "error",
+    "no-bitwise": "error",
+    "no-caller": "error",
+    "no-cond-assign": "error",
+    "no-constant-condition": "error",
+    "no-dupe-else-if": "error",
+    "lines-between-class-members": ["error", "always"],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "info",
+          "dirxml",
+          "warn",
+          "error",
+          "dir",
+          "timeLog",
+          "assert",
+          "clear",
+          "count",
+          "countReset",
+          "group",
+          "groupCollapsed",
+          "groupEnd",
+          "table",
+          "Console",
+          "markTimeline",
+          "profile",
+          "profileEnd",
+          "timeline",
+          "timelineEnd",
+          "timeStamp",
+          "context"
+        ]
+      }
+    ],
+    "no-debugger": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "error",
+    "no-eval": "error",
+    "no-extra-bind": "error",
+    "no-fallthrough": "error",
+    "no-invalid-this": "error",
+    "no-irregular-whitespace": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-redeclare": "error",
+    "no-return-await": "error",
+    "no-sequences": "error",
+    "no-sparse-arrays": "error",
+    "no-template-curly-in-string": "error",
+    "no-shadow": "off",
+    "no-throw-literal": "error",
+    "no-trailing-spaces": "error",
+    "no-undef-init": "error",
+    "no-unsafe-finally": "error",
+    "no-unused-expressions": "off",
+    "no-unused-labels": "error",
     "no-var": "error",
     "object-shorthand": "error",
     "prefer-const": "error",
-    "prefer-template": "error"
-  },
-  "env": {
-    "node": true
+    "prefer-object-spread": "error",
+    "quote-props": ["error", "consistent-as-needed"],
+    "radix": "error",
+    "use-isnan": "error",
+    "valid-typeof": "off",
+    "space-before-function-paren": "off",
+    "arrow-spacing": "error",
+    "no-confusing-arrow": "error",
+    "no-duplicate-imports": "error",
+    "prefer-template": "error",
+    /**
+     * plugin:react-hooks
+     */
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "space-before-blocks": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "never",
+        "functions": "only-multiline"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "jsxSingleQuote": false,
+        "endOfLine": "auto",
+        "singleQuote": true,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "bracketSpacing": true,
+        "semi": true,
+        "printWidth": 80,
+        "bracketSameLine": false,
+        "useTabs": false,
+        "arrowParens": "always"
+      }
+    ]
   }
 }
