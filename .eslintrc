@@ -27,7 +27,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": "./tsconfig.eslint.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -134,6 +134,7 @@
     "@typescript-eslint/no-duplicate-imports": ["error"],
     "@typescript-eslint/no-shadow": "error",
     "@typescript-eslint/no-unused-expressions": ["error"],
+    "import/no-unresolved": ["error", { "ignore": ["^~/*"] }],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
