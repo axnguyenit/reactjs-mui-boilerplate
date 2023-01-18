@@ -1,4 +1,6 @@
+import { User } from '../models';
+
 export type SignInResponse = {
   accessToken: string;
-  userId: string;
+  user: User;
 };

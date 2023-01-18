@@ -1,0 +1,17 @@
+{
+  "appName": "ReactJS Boilerplate",
+  "signIn": "Đăng nhập",
+  "language": "Ngôn ngữ",
+  "languages": {
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt"
+  },
+  "button": {
+    "next": "Tiếp theo",
+    "back": "Trở về",
+    "add": "Thêm",
+    "save": "Lưu",
+    "confirm": "Xác nhận",
+    "cancel": "Huỷ"
+  }
+}

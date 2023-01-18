@@ -1,28 +1,28 @@
-export interface IPaginationParameters {
+export interface Pagination {
   limit: number;
   page: number;
   totalRows: number;
 }
 
-export interface IListParameters {
-  page?: number;
-  limit?: number;
+export interface ListParams {
+  page: number;
+  limit: number;
 
   [key: string]: any;
 }
 
-export interface IListResponse<T> {
-  results: T[];
-  pagination?: IPaginationParameters;
+export interface ListResponse<T> {
+  data: Array<T>;
+  pagination?: Pagination;
 }
 
-export interface IPostData<T = any> {
+export interface PostData<T = any> {
   result?: T;
   msg: string;
 }
 
-export interface IError {
-  errors: {
+export interface Error {
+  errors: Array<{
     msg: string;
-  }[];
+  }>;
 }

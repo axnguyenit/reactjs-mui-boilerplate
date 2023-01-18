@@ -1,5 +1,18 @@
 {
-  "demo": {
-    "title": "English"
+  "appName": "ReactJS Boilerplate",
+  "signIn": "Sign in",
+  "language": "Language",
+  "languages": {
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "button": {
+    "next": "Next",
+    "back": "Back",
+    "add": "Add",
+    "save": "Save",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "change": "Change"
   }
 }

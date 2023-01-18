@@ -8,42 +8,40 @@ import {
 } from 'react';
 
 import Loading from '~/components/Loading';
-import * as UserService from '~/services/user.service';
+import { userService } from '~/services';
+import { User } from '~/services/models';
 import setSession from '~/utils/session';
 
-interface IAuthState {
+interface AuthState {
   isAuthenticated?: boolean;
   isInitialized?: boolean;
-  user?: any | null;
+  user?: User | null;
 }
 
-interface IPayloadAction<T> {
-  type: 'INITIALIZE' | 'LOGIN' | 'LOGOUT';
+interface PayloadAction<T> {
+  type: 'INITIALIZE' | 'SIGN_IN' | 'SIGN_OUT';
   payload: T;
 
   [key: string]: any;
 }
 
-interface IHandlerState {
-  INITIALIZE: (
-    state: IAuthState,
-    action: IPayloadAction<IAuthState>,
-  ) => IAuthState;
-  LOGIN: (state: IAuthState, action: IPayloadAction<IAuthState>) => IAuthState;
-  LOGOUT: (state: IAuthState) => IAuthState;
+interface HandlerState {
+  INITIALIZE: (state: AuthState, action: PayloadAction<AuthState>) => AuthState;
+  SIGN_IN: (state: AuthState, action: PayloadAction<AuthState>) => AuthState;
+  SIGN_OUT: (state: AuthState) => AuthState;
 }
 
-const initialState: IAuthState = {
+const initialState: AuthState = {
   isAuthenticated: false,
   isInitialized: false,
   user: null,
 };
 
-const handlers: IHandlerState = {
+const handlers: HandlerState = {
   INITIALIZE: (
-    state: IAuthState,
-    action: IPayloadAction<IAuthState>,
-  ): IAuthState => {
+    state: AuthState,
+    action: PayloadAction<AuthState>,
+  ): AuthState => {
     const { isAuthenticated, user } = action.payload;
 
     return {
@@ -54,10 +52,7 @@ const handlers: IHandlerState = {
     };
   },
 
-  LOGIN: (
-    state: IAuthState,
-    action: IPayloadAction<IAuthState>,
-  ): IAuthState => {
+  SIGN_IN: (state: AuthState, action: PayloadAction<AuthState>): AuthState => {
     const { user } = action.payload;
 
     return {
@@ -67,7 +62,7 @@ const handlers: IHandlerState = {
     };
   },
 
-  LOGOUT: (state: IAuthState): IAuthState => ({
+  SIGN_OUT: (state: AuthState): AuthState => ({
     ...state,
     isAuthenticated: false,
     user: null,
@@ -75,26 +70,26 @@ const handlers: IHandlerState = {
 };
 
 // eslint-disable-next-line no-confusing-arrow
-const reducer = (state: IAuthState, action: IPayloadAction<IAuthState>) =>
+const reducer = (state: AuthState, action: PayloadAction<AuthState>) =>
   handlers[action.type] ? handlers[action.type](state, action) : state;
 
-export interface IAuthProviderProperties {
+export interface AuthProviderProperties {
   children: ReactNode;
 }
 
-type ContextType = IAuthState & {
-  logout: () => void;
-  dispatch: Dispatch<IPayloadAction<IAuthState>>;
+type ContextType = AuthState & {
+  signOut: () => void;
+  dispatch: Dispatch<PayloadAction<AuthState>>;
 };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const AuthContext = createContext<ContextType>({
   ...initialState,
-  logout: () => null,
+  signOut: () => null,
   dispatch: () => null,
 });
 
-function AuthProvider({ children }: IAuthProviderProperties) {
+function AuthProvider({ children }: AuthProviderProperties) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -109,7 +104,7 @@ function AuthProvider({ children }: IAuthProviderProperties) {
         if (accessToken) {
           setSession(accessToken, refreshToken);
 
-          const user = await UserService.getProfile();
+          const user = await userService.getProfile();
 
           dispatch({
             type: 'INITIALIZE',
@@ -141,12 +136,11 @@ function AuthProvider({ children }: IAuthProviderProperties) {
     };
 
     initialize();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const logout = () => {
+  const signOut = () => {
     setSession(null, null);
-    dispatch({ type: 'LOGOUT', payload: { user: null } });
+    dispatch({ type: 'SIGN_OUT', payload: { user: null } });
   };
 
   if (isLoading) {
@@ -154,7 +148,7 @@ function AuthProvider({ children }: IAuthProviderProperties) {
   }
 
   return (
-    <AuthContext.Provider value={{ ...state, logout, dispatch }}>
+    <AuthContext.Provider value={{ ...state, signOut, dispatch }}>
       {children}
     </AuthContext.Provider>
   );

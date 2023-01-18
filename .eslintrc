@@ -58,6 +58,7 @@
     "unicorn/prefer-node-protocol": "off",
     "unicorn/numeric-separators-style": "off",
     "unicorn/no-null": "off",
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": [
       "error",
       {
@@ -100,12 +101,13 @@
       },
       {
         "selector": "variable",
-        "format": ["camelCase", "UPPER_CASE"]
+        "format": ["camelCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
       },
       {
         "selector": "interface",
-        "format": ["PascalCase"],
-        "prefix": ["I"]
+        "format": ["PascalCase"]
       },
       {
         "selector": "typeLike",
@@ -142,6 +144,10 @@
         "varsIgnorePattern": "^_",
         "caughtErrorsIgnorePattern": "^_"
       }
+    ],
+    "@typescript-eslint/array-type": [
+      "error",
+      { "default": "generic", "readonly": "generic" }
     ],
     /**
      * plugin:eslint
@@ -281,7 +287,7 @@
         "arrays": "only-multiline",
         "objects": "only-multiline",
         "imports": "only-multiline",
-        "exports": "never",
+        "exports": "only-multiline",
         "functions": "only-multiline"
       }
     ],

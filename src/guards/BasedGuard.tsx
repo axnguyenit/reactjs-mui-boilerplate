@@ -5,11 +5,11 @@ import Loading from '~/components/Loading';
 import { useAuth } from '~/hooks';
 import { PATH_AUTH } from '~/routes/path';
 
-export interface IBasedGuardProperties {
+export interface BasedGuardProperties {
   children: ReactNode;
 }
 
-export default function BasedGuard({ children }: IBasedGuardProperties) {
+export default function BasedGuard({ children }: BasedGuardProperties) {
   const { isAuthenticated, isInitialized } = useAuth();
 
   if (!isInitialized) {

@@ -1,24 +1,38 @@
+import { Button } from '@mui/material';
+
+import { STRINGS } from '~/constants';
 import { useLocales } from '~/hooks';
 
+import useSignIn from '../hooks/useSignIn';
+
 export default function SignIn() {
-  const { allLang, translate, onChangeLang } = useLocales();
+  const { signIn } = useSignIn();
+  const { translate } = useLocales();
 
   return (
     <div>
-      <span>{translate('demo.title')}</span>
+      {/* <span>{translate(STRINGS.language)}</span>
 
       {allLang.map((option) => (
-        <button
+        <Button
           key={option.value}
           onClick={() => {
             onChangeLang(option.value);
           }}
         >
-          <img alt={option.label} src={option.icon} />
-
-          {option.label}
-        </button>
-      ))}
+          {translate(option.label)}
+        </Button>
+      ))} */}
+      <Button
+        onClick={() =>
+          signIn({
+            email: 'axnguyen.it@gmail.com',
+            password: '@Passw0rd1',
+          })
+        }
+      >
+        {translate(STRINGS.signIn)}
+      </Button>
     </div>
   );
 }

@@ -1,13 +1,13 @@
+import { STRINGS } from './strings';
+
 const LANGS = [
   {
-    label: 'English',
+    label: STRINGS.languages.english,
     value: 'en',
-    icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_flag_en.svg',
   },
   {
-    label: 'French',
-    value: 'fr',
-    icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_flag_fr.svg',
+    label: STRINGS.languages.vietnamese,
+    value: 'vi',
   },
 ];
 export { LANGS };
