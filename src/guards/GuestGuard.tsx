@@ -7,7 +7,7 @@ export interface GuestGuardProperties {
   children: ReactNode;
 }
 
-export default function GuestGuard({ children }: IGuestGuardProperties) {
+export default function GuestGuard({ children }: GuestGuardProperties) {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
