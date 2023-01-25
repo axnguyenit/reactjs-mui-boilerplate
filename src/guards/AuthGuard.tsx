@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import Loading from '~/components/Loading';
+import Loading from '~/components/loading';
 import { useAuth } from '~/hooks';
 import { PATH_AUTH } from '~/routes/path';
 import { AppRole } from '~/services/models';

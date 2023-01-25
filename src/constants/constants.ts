@@ -1,6 +1,6 @@
 import { STRINGS } from './strings';
 
-const LANGS = [
+const LANGUAGES = [
   {
     label: STRINGS.languages.english,
     value: 'en',
@@ -10,4 +10,4 @@ const LANGS = [
     value: 'vi',
   },
 ];
-export { LANGS };
+export { LANGUAGES };

@@ -8,6 +8,8 @@ export default function useSignIn() {
 
   const signIn = async (data: SignInRequest) => {
     try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const response = await authService.signIn(data);
       setSession(response.accessToken, null);
       dispatch({

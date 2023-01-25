@@ -1,11 +1,11 @@
 const button = {
-  next: 'next',
-  back: 'back',
-  add: 'add',
-  save: 'save',
-  confirm: 'confirm',
-  cancel: 'cancel',
-  change: 'change',
+  next: 'button.next',
+  back: 'button.back',
+  add: 'button.add',
+  save: 'button.save',
+  confirm: 'button.confirm',
+  cancel: 'button.cancel',
+  change: 'button.change',
 };
 
 const languages = {
@@ -13,11 +13,25 @@ const languages = {
   vietnamese: 'languages.vietnamese',
 };
 
+const authentication = {
+  signIn: 'authentication.signIn',
+  forgotPassword: 'authentication.forgotPassword',
+  doNotHaveAnAccount: 'authentication.doNotHaveAnAccount',
+};
+
+const formField = {
+  emailLabel: 'formField.emailLabel',
+  passwordLabel: 'formField.passwordLabel',
+};
+
 export const STRINGS = {
-  signIn: 'signIn',
+  welcomeBack: 'welcomeBack',
   english: 'english',
   appName: 'appName',
-  button,
   language: 'language',
+  button,
   languages,
+  authentication,
+  getStarted: 'getStarted',
+  formField,
 };

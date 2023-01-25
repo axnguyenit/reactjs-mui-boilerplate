@@ -266,7 +266,7 @@
     "object-shorthand": "error",
     "prefer-const": "error",
     "prefer-object-spread": "error",
-    "quote-props": ["error", "consistent-as-needed"],
+    "quote-props": ["error", "as-needed"],
     "radix": "error",
     "use-isnan": "error",
     "valid-typeof": "off",

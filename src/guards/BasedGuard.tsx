@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import Loading from '~/components/Loading';
+import Loading from '~/components/loading';
 import { useAuth } from '~/hooks';
 import { PATH_AUTH } from '~/routes/path';
 

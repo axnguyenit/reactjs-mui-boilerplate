@@ -3,17 +3,19 @@ import axios, {
   AxiosRequestHeaders,
   AxiosResponse,
 } from 'axios';
+import queryString from 'query-string';
 
-// import queryString from 'query-string';
-import { HOST_API } from '~/config';
+import { API_URL } from '~/config';
 
 const axiosInstance = axios.create({
-  baseURL: HOST_API,
+  baseURL: API_URL,
   headers: {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'Content-Type': 'application/json',
   },
-  // paramsSerializer: (params: Record<string, any>) => queryString.stringify(params),
+  paramsSerializer: {
+    encode: (params: Record<string, any>) => queryString.stringify(params),
+  },
 });
 
 axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => config);
@@ -25,7 +27,7 @@ type AxiosConfig = AxiosRequestConfig & {
 };
 
 axiosInstance.interceptors.response.use(async (response: AxiosResponse) => {
-  const config = response.config as AxiosConfig;
+  const config = <AxiosConfig>response.config;
 
   // handle access token expired
   if (response.data.code && response.data.code === 401) {

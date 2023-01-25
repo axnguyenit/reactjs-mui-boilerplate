@@ -1,17 +1,28 @@
 {
   "appName": "ReactJS Boilerplate",
-  "signIn": "Đăng nhập",
+  "welcomeBack": "Hi, Chào mừng quay trở lại",
   "language": "Ngôn ngữ",
+  "getStarted": "Bắt đầu",
   "languages": {
     "english": "Tiếng Anh",
     "vietnamese": "Tiếng Việt"
   },
   "button": {
-    "next": "Tiếp theo",
+    "next": "Tiếp",
     "back": "Trở về",
     "add": "Thêm",
     "save": "Lưu",
     "confirm": "Xác nhận",
-    "cancel": "Huỷ"
+    "cancel": "Huỷ",
+    "change": "Thay đổi"
+  },
+  "authentication": {
+    "doNotHaveAnAccount": "Không có tài khoản?",
+    "signIn": "Đăng nhập",
+    "forgotPassword": "Quên mật khẩu?"
+  },
+  "formField": {
+    "emailLabel": "Địa chỉ email",
+    "passwordLabel": "Mật khẩu"
   }
 }

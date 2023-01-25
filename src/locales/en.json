@@ -1,7 +1,8 @@
 {
   "appName": "ReactJS Boilerplate",
-  "signIn": "Sign in",
+  "welcomeBack": "Hi, Welcome Back",
   "language": "Language",
+  "getStarted": "Get Started",
   "languages": {
     "english": "English",
     "vietnamese": "Vietnamese"
@@ -14,5 +15,14 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "change": "Change"
+  },
+  "authentication": {
+    "doNotHaveAnAccount": "Don't have an account?",
+    "signIn": "Sign in",
+    "forgotPassword": "Forgot password?"
+  },
+  "formField": {
+    "emailLabel": "Email address",
+    "passwordLabel": "Password"
   }
 }
