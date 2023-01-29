@@ -24,5 +24,10 @@
   "formField": {
     "emailLabel": "Email address",
     "passwordLabel": "Password"
+  },
+  "formValidation": {
+    "requiredEmail": "Email is required",
+    "invalidEmailFormat": "Email must be a valid email address",
+    "requiredPassword": "Password is required"
   }
 }

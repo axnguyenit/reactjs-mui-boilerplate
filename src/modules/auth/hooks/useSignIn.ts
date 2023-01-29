@@ -1,10 +1,12 @@
 import { useAuth } from '~/hooks';
-import { authService } from '~/services';
-import { SignInRequest } from '~/services/request';
+import { authService, SignInRequest } from '~/services';
 import setSession from '~/utils/session';
 
-export default function useSignIn() {
+import { useSignInValidation } from './useSignInValidation';
+
+export function useSignIn() {
   const { dispatch } = useAuth();
+  const { formMethods } = useSignInValidation();
 
   const signIn = async (data: SignInRequest) => {
     try {
@@ -23,5 +25,5 @@ export default function useSignIn() {
     }
   };
 
-  return { signIn };
+  return { signIn, formMethods };
 }

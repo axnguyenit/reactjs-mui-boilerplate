@@ -24,5 +24,10 @@
   "formField": {
     "emailLabel": "Địa chỉ email",
     "passwordLabel": "Mật khẩu"
+  },
+  "formValidation": {
+    "requiredEmail": "Vui lòng nhập địa chỉ email",
+    "invalidEmailFormat": "Địa chỉ email không hợp lệ",
+    "requiredPassword": "Vui lòng nhập mật khẩu"
   }
 }

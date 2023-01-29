@@ -1,4 +1,3 @@
-import { yupResolver } from '@hookform/resolvers/yup';
 import { LoadingButton } from '@mui/lab';
 import {
   Box,
@@ -10,17 +9,14 @@ import {
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { Link as RouterLink } from 'react-router-dom';
-import * as Yup from 'yup';
 
 import { FormProvider, Iconify, Image, Logo, RHFTextField } from '~/components';
 import { APP_IMAGES, STRINGS } from '~/constants';
 import { useLocales, useResponsive } from '~/hooks';
 import { PATH_AUTH } from '~/routes/path';
-import { SignInRequest } from '~/services/request';
 
-import useSignIn from '../hooks/useSignIn';
+import { useSignIn } from '../hooks';
 import {
   ContentStyle,
   HeaderStyle,
@@ -29,33 +25,15 @@ import {
 } from './sign-in.styles';
 
 export default function SignIn() {
-  const { signIn } = useSignIn();
+  const { signIn, formMethods } = useSignIn();
   const { translate } = useLocales();
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const isSmUp = useResponsive('up', 'sm');
   const isMdUp = useResponsive('up', 'md');
-
-  const signInSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Email must be a valid email address')
-      .required('Email is required'),
-    password: Yup.string().required('Password is required'),
-  });
-
-  const defaultValues: SignInRequest = {
-    email: 'axnguyenn.it@gmail.com',
-    password: '@Passw0rd1',
-  };
-
-  const methods = useForm<SignInRequest>({
-    resolver: yupResolver(signInSchema),
-    defaultValues,
-  });
-
   const {
     handleSubmit,
     formState: { isSubmitting },
-  } = methods;
+  } = formMethods;
 
   return (
     <RootStyle>
@@ -99,7 +77,7 @@ export default function SignIn() {
             />
           </Stack>
 
-          <FormProvider methods={methods} onSubmit={handleSubmit(signIn)}>
+          <FormProvider methods={formMethods} onSubmit={handleSubmit(signIn)}>
             <Stack spacing={3}>
               {/* {Boolean(error) && <Alert severity="error">{error}</Alert>} */}
               <RHFTextField

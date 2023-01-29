@@ -23,6 +23,11 @@ const formField = {
   emailLabel: 'formField.emailLabel',
   passwordLabel: 'formField.passwordLabel',
 };
+const formValidation = {
+  requiredEmail: 'formValidation.requiredEmail',
+  invalidEmailFormat: 'formValidation.invalidEmailFormat',
+  requiredPassword: 'formValidation.requiredPassword',
+};
 
 export const STRINGS = {
   welcomeBack: 'welcomeBack',
@@ -34,4 +39,5 @@ export const STRINGS = {
   authentication,
   getStarted: 'getStarted',
   formField,
+  formValidation,
 };
