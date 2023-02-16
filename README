@@ -1,0 +1,8 @@
+- #### components: (components that only contain input and output)
+- #### pages:
+- #### features:
+  - core: (component that contain life cycle or handle logic)
+  #### hooks: (custom hook for ui)
+  #### queries: (hooks handle api)
+  #### apis:
+  - path

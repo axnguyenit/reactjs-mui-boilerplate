@@ -10,7 +10,6 @@ import { API_URL } from '~/config';
 const axiosInstance = axios.create({
   baseURL: API_URL,
   headers: {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'Content-Type': 'application/json',
   },
   paramsSerializer: {

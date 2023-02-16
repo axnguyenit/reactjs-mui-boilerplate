@@ -1,10 +1,11 @@
 import { TextFieldProps } from '@mui/material';
 import { FormEventHandler, ReactNode } from 'react';
+import { FieldValues, UseFormReturn } from 'react-hook-form';
 
-export interface FormProviderProps {
+export interface FormProviderProps<T extends FieldValues> {
   children: ReactNode;
   onSubmit: FormEventHandler<HTMLFormElement>;
-  methods: any;
+  methods: UseFormReturn<T>;
 }
 
 export interface RHFEditorProps {

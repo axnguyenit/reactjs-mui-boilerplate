@@ -1,9 +1,29 @@
 {
-  "name": "reactjs-boilerplate",
+  "name": "reactjs-mui-boilerplate",
   "private": true,
   "author": "axnguyenit",
   "version": "0.0.0",
   "type": "module",
+  "keywords": [
+    "React",
+    "ReactJS",
+    "TypeScript",
+    "MUI",
+    "Material UI",
+    "Hooks",
+    "React Hook Form",
+    "boilerplate",
+    "axnguyenit",
+    "Eslint",
+    "Prettier"
+  ],
+  "contributors": [
+    {
+      "name": "Ax Nguyen",
+      "email": "axnguyen.it@gmail.com",
+      "url": "https://github.com/axnguyenit"
+    }
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -17,6 +37,8 @@
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@floating-ui/react": "^0.19.1",
+    "@floating-ui/react-dom": "^1.2.2",
     "@hookform/resolvers": "^2.9.10",
     "@iconify/react": "^4.0.1",
     "@mui/lab": "^5.0.0-alpha.116",
@@ -75,7 +97,7 @@
     "src/**/*.{ts, tsx}": [
       "eslint --fix",
       "prettier --write",
-      "git add"
+      "git add ."
     ]
   }
 }

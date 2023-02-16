@@ -89,43 +89,43 @@
       }
     ],
     "@typescript-eslint/semi": ["error", "always"],
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "default",
-        "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"],
-        "filter": {
-          "regex": "^_.*$",
-          "match": false
-        }
-      },
-      {
-        "selector": "variable",
-        "format": ["camelCase", "UPPER_CASE"],
-        "leadingUnderscore": "allow",
-        "trailingUnderscore": "allow"
-      },
-      {
-        "selector": "interface",
-        "format": ["PascalCase"]
-      },
-      {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
-      },
-      {
-        "selector": "memberLike",
-        "modifiers": ["private"],
-        "format": ["camelCase"],
-        "leadingUnderscore": "forbid"
-      },
-      {
-        "selector": "variable",
-        "types": ["boolean"],
-        "format": ["PascalCase"],
-        "prefix": ["is", "should", "has", "can", "did", "will"]
-      }
-    ],
+    // "@typescript-eslint/naming-convention": [
+    //   "error",
+    //   {
+    //     "selector": "default",
+    //     "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"],
+    //     "filter": {
+    //       "regex": "^_.*$",
+    //       "match": false
+    //     }
+    //   },
+    //   {
+    //     "selector": "variable",
+    //     "format": ["camelCase", "UPPER_CASE"],
+    //     "leadingUnderscore": "allow",
+    //     "trailingUnderscore": "allow"
+    //   },
+    //   {
+    //     "selector": "interface",
+    //     "format": ["PascalCase"]
+    //   },
+    //   {
+    //     "selector": "typeLike",
+    //     "format": ["PascalCase"]
+    //   },
+    //   {
+    //     "selector": "memberLike",
+    //     "modifiers": ["private"],
+    //     "format": ["camelCase"],
+    //     "leadingUnderscore": "forbid"
+    //   },
+    //   {
+    //     "selector": "variable",
+    //     "types": ["boolean"],
+    //     "format": ["PascalCase"],
+    //     "prefix": ["is", "should", "has", "can", "did", "will"]
+    //   }
+    // ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "require-await": "off",
@@ -135,7 +135,7 @@
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-duplicate-imports": ["error"],
     "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-unused-expressions": ["error"],
+    "@typescript-eslint/no-unused-expressions": "off",
     "import/no-unresolved": ["error", { "ignore": ["^~/*"] }],
     "@typescript-eslint/no-unused-vars": [
       "error",
