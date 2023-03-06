@@ -1,7 +1,6 @@
-import { Theme } from '@mui/material';
-import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from './CustomIcons';
+import { Theme, ThemeOptions } from '@mui/material';
 
-// ----------------------------------------------------------------------
+import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from './CustomIcons';
 
 type ColorType =
   | 'primary'
@@ -11,12 +10,12 @@ type ColorType =
   | 'warning'
   | 'error';
 
-export default function Alert(theme: Theme) {
+export default function Alert(theme: Theme): ThemeOptions['components'] {
   const standardStyle = (color: ColorType) => ({
-    color: theme.palette[color]['dark'],
-    backgroundColor: theme.palette[color]['light'],
+    color: theme.palette[color].dark,
+    backgroundColor: theme.palette[color].light,
     '& .MuiAlert-icon': {
-      color: theme.palette[color]['main'],
+      color: theme.palette[color].main,
     },
   });
 
@@ -25,11 +24,11 @@ export default function Alert(theme: Theme) {
   });
 
   const outlinedStyle = (color: ColorType) => ({
-    color: theme.palette[color]['dark'],
-    border: `solid 1px ${theme.palette[color]['light']}`,
-    backgroundColor: theme.palette[color]['light'],
+    color: theme.palette[color].dark,
+    border: `solid 1px ${theme.palette[color].light}`,
+    backgroundColor: theme.palette[color].light,
     '& .MuiAlert-icon': {
-      color: theme.palette[color]['main'],
+      color: theme.palette[color].main,
     },
   });
 

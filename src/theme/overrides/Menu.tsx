@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Menu(theme: Theme) {
+export default function Menu(theme: Theme): ThemeOptions['components'] {
   return {
     MuiMenuItem: {
       styleOverrides: {

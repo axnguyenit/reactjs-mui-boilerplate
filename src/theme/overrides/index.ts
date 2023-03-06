@@ -43,7 +43,9 @@ import Tooltip from './Tooltip';
 import TreeView from './TreeView';
 import Typography from './Typography';
 
-export default function ComponentsOverrides(theme: Theme) {
+export default function ComponentsOverrides(
+  theme: Theme,
+): ThemeOptions['components'] {
   return Object.assign(
     Fab(theme),
     Tabs(theme),

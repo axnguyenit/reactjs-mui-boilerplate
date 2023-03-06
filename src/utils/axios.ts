@@ -3,8 +3,9 @@ import axios, {
   AxiosRequestHeaders,
   AxiosResponse,
 } from 'axios';
-import queryString from 'query-string';
+import qs from 'qs';
 
+// import queryString from 'query-string';
 import { API_URL } from '~/config';
 
 const axiosInstance = axios.create({
@@ -13,7 +14,9 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
   paramsSerializer: {
-    encode: (params: Record<string, any>) => queryString.stringify(params),
+    serialize: (params: Record<string, any>) =>
+      qs.stringify(params, { arrayFormat: 'comma' }),
+    indexes: null,
   },
 });
 

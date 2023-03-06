@@ -1,8 +1,8 @@
-import { Theme, alpha } from '@mui/material';
+import { alpha, Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Pagination(theme: Theme) {
+export default function Pagination(theme: Theme): ThemeOptions['components'] {
   return {
     MuiPaginationItem: {
       styleOverrides: {
@@ -18,7 +18,7 @@ export default function Pagination(theme: Theme) {
             '&:hover, &.Mui-focusVisible': {
               backgroundColor: `${alpha(
                 theme.palette.primary.main,
-                0.24
+                0.24,
               )} !important`,
             },
           },

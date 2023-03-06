@@ -192,12 +192,12 @@
     "guard-for-in": "error",
     "id-match": "error",
     "max-classes-per-file": ["error", 2],
-    "max-len": [
-      "error",
-      {
-        "code": 150
-      }
-    ],
+    // "max-len": [
+    //   "error",
+    //   {
+    //     "code": 150
+    //   }
+    // ],
     "new-parens": "error",
     "no-bitwise": "error",
     "no-caller": "error",

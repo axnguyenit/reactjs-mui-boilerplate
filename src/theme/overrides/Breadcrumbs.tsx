@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Breadcrumbs(theme: Theme) {
+export default function Breadcrumbs(theme: Theme): ThemeOptions['components'] {
   return {
     MuiBreadcrumbs: {
       styleOverrides: {

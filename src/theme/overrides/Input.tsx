@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Input(theme: Theme) {
+export default function Input(theme: Theme): ThemeOptions['components'] {
   return {
     MuiInputBase: {
       styleOverrides: {

@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Skeleton(theme: Theme) {
+export default function Skeleton(theme: Theme): ThemeOptions['components'] {
   return {
     MuiSkeleton: {
       defaultProps: {

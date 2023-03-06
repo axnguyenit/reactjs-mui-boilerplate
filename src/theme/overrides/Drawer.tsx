@@ -1,8 +1,8 @@
-import { Theme, alpha } from '@mui/material';
+import { alpha, Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Drawer(theme: Theme) {
+export default function Drawer(theme: Theme): ThemeOptions['components'] {
   return {
     MuiDrawer: {
       styleOverrides: {
@@ -11,13 +11,13 @@ export default function Drawer(theme: Theme) {
             '& .MuiDrawer-paperAnchorLeft': {
               boxShadow: `8px 24px 24px 12px ${alpha(
                 theme.palette.grey[900],
-                0.16
+                0.16,
               )}`,
             },
             '& .MuiDrawer-paperAnchorRight': {
               boxShadow: `-8px 24px 24px 12px ${alpha(
                 theme.palette.grey[900],
-                0.16
+                0.16,
               )}`,
             },
           },

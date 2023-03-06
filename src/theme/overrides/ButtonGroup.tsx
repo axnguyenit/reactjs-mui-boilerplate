@@ -1,4 +1,9 @@
-import { Theme } from '@mui/material';
+import {
+  ComponentsPropsList,
+  Interpolation,
+  Theme,
+  ThemeOptions,
+} from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -10,8 +15,13 @@ type ColorType =
   | 'warning'
   | 'error';
 
-export default function ButtonGroup(theme: Theme) {
-  const styleContained = (color: ColorType) => ({
+export default function ButtonGroup(theme: Theme): ThemeOptions['components'] {
+  const styleContained = (
+    color: ColorType,
+  ): {
+    props: Partial<ComponentsPropsList['MuiButtonGroup']>;
+    style: Interpolation<{ theme: Theme }>;
+  } => ({
     props: { variant: 'contained', color },
     style: { boxShadow: theme.customShadows[color] },
   });
@@ -29,7 +39,6 @@ export default function ButtonGroup(theme: Theme) {
         styleContained('success'),
         styleContained('warning'),
         styleContained('error'),
-
         {
           props: { disabled: true },
           style: {

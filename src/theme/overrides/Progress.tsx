@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Progress(theme: Theme) {
+export default function Progress(theme: Theme): ThemeOptions['components'] {
   return {
     MuiLinearProgress: {
       styleOverrides: {
@@ -14,7 +14,7 @@ export default function Progress(theme: Theme) {
           borderRadius: 4,
         },
         colorPrimary: {
-          backgroundColor: theme.palette.primary['light'],
+          backgroundColor: theme.palette.primary.light,
         },
         buffer: {
           backgroundColor: 'transparent',

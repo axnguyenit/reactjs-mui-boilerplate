@@ -8,6 +8,7 @@ import { MainLayout } from '~/layouts';
 const SignIn = lazy(() => import('./auth/sign-in'));
 const SignUp = lazy(() => import('./auth/sign-up'));
 const UserList = lazy(() => import('./users/user-list'));
+const Home = lazy(() => import('./home'));
 
 export default function Router() {
   return useRoutes([
@@ -18,10 +19,18 @@ export default function Router() {
         {
           element: (
             <BasedGuard>
-              <UserList />
+              <Home />
             </BasedGuard>
           ),
           index: true,
+        },
+        {
+          path: 'user-list',
+          element: (
+            <BasedGuard>
+              <UserList />
+            </BasedGuard>
+          ),
         },
       ],
     },

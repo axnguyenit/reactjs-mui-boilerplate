@@ -1,13 +1,14 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
+
 import {
   TreeViewCollapseIcon,
-  TreeViewExpandIcon,
   TreeViewEndIcon,
+  TreeViewExpandIcon,
 } from './CustomIcons';
 
 // ----------------------------------------------------------------------
 
-export default function TreeView(theme: Theme) {
+export default function TreeView(theme: Theme): ThemeOptions['components'] {
   return {
     MuiTreeView: {
       defaultProps: {

@@ -16,6 +16,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": ".",
+    "experimentalDecorators": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "downlevelIteration": true,
+    "traceResolution": false,
     "paths": {
       "~/*": ["src/*"]
     }

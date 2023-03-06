@@ -1,15 +1,15 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
+
 import { CloseIcon } from './CustomIcons';
 
 // ----------------------------------------------------------------------
 
-export default function Chip(theme: Theme) {
+export default function Chip(theme: Theme): ThemeOptions['components'] {
   return {
     MuiChip: {
       defaultProps: {
         deleteIcon: <CloseIcon />,
       },
-
       styleOverrides: {
         colorDefault: {
           '& .MuiChip-avatarMedium, .MuiChip-avatarSmall': {

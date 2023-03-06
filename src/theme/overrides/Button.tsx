@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Button(theme: Theme) {
+export default function Button(theme: Theme): ThemeOptions['components'] {
   return {
     MuiButton: {
       styleOverrides: {
@@ -52,6 +52,9 @@ export default function Button(theme: Theme) {
             backgroundColor: theme.palette.action.hover,
           },
         },
+      },
+      defaultProps: {
+        variant: 'contained',
       },
     },
   };

@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Table(theme: Theme) {
+export default function Table(theme: Theme): ThemeOptions['components'] {
   return {
     MuiTableRow: {
       styleOverrides: {

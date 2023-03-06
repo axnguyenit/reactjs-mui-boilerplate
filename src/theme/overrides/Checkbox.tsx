@@ -1,13 +1,14 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
+
 import {
-  CheckboxIcon,
   CheckboxCheckedIcon,
+  CheckboxIcon,
   CheckboxIndeterminateIcon,
 } from './CustomIcons';
 
 // ----------------------------------------------------------------------
 
-export default function Checkbox(theme: Theme) {
+export default function Checkbox(theme: Theme): ThemeOptions['components'] {
   return {
     MuiCheckbox: {
       defaultProps: {

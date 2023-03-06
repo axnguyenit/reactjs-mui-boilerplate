@@ -1,4 +1,4 @@
-import { Theme, alpha } from '@mui/material';
+import { alpha, Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -10,7 +10,7 @@ type ColorType =
   | 'warning'
   | 'error';
 
-export default function ToggleButton(theme: Theme) {
+export default function ToggleButton(theme: Theme): ThemeOptions['components'] {
   const style = (color: ColorType) => ({
     props: { color },
     style: {
@@ -18,7 +18,7 @@ export default function ToggleButton(theme: Theme) {
         borderColor: alpha(theme.palette[color].main, 0.48),
         backgroundColor: alpha(
           theme.palette[color].main,
-          theme.palette.action.hoverOpacity
+          theme.palette.action.hoverOpacity,
         ),
       },
       '&.Mui-selected': {

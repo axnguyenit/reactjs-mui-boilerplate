@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Radio(theme: Theme) {
+export default function Radio(theme: Theme): ThemeOptions['components'] {
   return {
     MuiRadio: {
       styleOverrides: {

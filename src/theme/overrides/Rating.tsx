@@ -1,4 +1,5 @@
-import { Theme } from '@mui/material';
+import { Theme, ThemeOptions } from '@mui/material';
+
 import { StarIcon } from './CustomIcons';
 
 // ----------------------------------------------------------------------
@@ -6,7 +7,7 @@ import { StarIcon } from './CustomIcons';
 const ICON_SMALL = { width: 20, height: 20 };
 const ICON_LARGE = { width: 28, height: 28 };
 
-export default function Rating(theme: Theme) {
+export default function Rating(theme: Theme): ThemeOptions['components'] {
   return {
     MuiRating: {
       defaultProps: {
