@@ -21,8 +21,6 @@ interface AuthState {
 interface PayloadAction<T> {
   type: 'INITIALIZE' | 'SIGN_IN' | 'SIGN_OUT';
   payload: T;
-
-  [key: string]: any;
 }
 
 interface HandlerState {

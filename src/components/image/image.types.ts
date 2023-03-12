@@ -17,6 +17,4 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     | '9/21'
     | '1/1';
   sx?: SxProps<Theme>;
-
-  [key: string]: any;
 }
