@@ -1,10 +1,10 @@
-import { Theme, ThemeOptions } from '@mui/material';
+import { Theme } from '@mui/material';
 
 import { CloseIcon } from './CustomIcons';
 
 // ----------------------------------------------------------------------
 
-export default function Chip(theme: Theme): ThemeOptions['components'] {
+export default function Chip(theme: Theme) {
   return {
     MuiChip: {
       defaultProps: {

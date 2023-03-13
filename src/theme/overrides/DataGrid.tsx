@@ -1,10 +1,10 @@
-import { Theme, ThemeOptions } from '@mui/material';
+import { Theme } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function DataGrid(theme: Theme): ThemeOptions['components'] {
+export default function DataGrid(theme: Theme) {
   return {
-    MuiDataGrid: {
+    MuiGrid: {
       styleOverrides: {
         root: {
           borderRadius: 0,

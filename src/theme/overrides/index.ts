@@ -17,7 +17,7 @@ import CssBaseline from './CssBaseline';
 import DataGrid from './DataGrid';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
-import Fab from './Fab';
+// import Fab from './Fab';
 import Input from './Input';
 import Link from './Link';
 import Lists from './List';
@@ -43,11 +43,9 @@ import Tooltip from './Tooltip';
 import TreeView from './TreeView';
 import Typography from './Typography';
 
-export default function ComponentsOverrides(
-  theme: Theme,
-): ThemeOptions['components'] {
+export default function ComponentsOverrides(theme: Theme) {
   return Object.assign(
-    Fab(theme),
+    // Fab(theme),
     Tabs(theme),
     Chip(theme),
     Card(theme),

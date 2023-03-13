@@ -1,12 +1,10 @@
-import { STRINGS } from './strings';
-
 const LANGUAGES = [
   {
-    label: STRINGS.languages.english,
+    label: 'languages.english',
     value: 'en',
   },
   {
-    label: STRINGS.languages.vietnamese,
+    label: 'languages.vietnamese',
     value: 'vi',
   },
 ];

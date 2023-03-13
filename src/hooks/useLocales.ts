@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
 import { LANGUAGES } from '~/constants/constants';
+import translation from '~/locales/en.json';
+import { MappedUnion } from '~/types';
+
+type LocaleKeys = MappedUnion<typeof translation>;
 
 export function useLocales() {
   const { i18n, t } = useTranslation();
@@ -13,7 +17,7 @@ export function useLocales() {
     localStorage.setItem('i18n', newLanguage);
   };
 
-  const translate = (key: string): string => t(key);
+  const translate = (key: LocaleKeys): string => t(key);
 
   return {
     onChangeLanguage: handleChangeLanguage,

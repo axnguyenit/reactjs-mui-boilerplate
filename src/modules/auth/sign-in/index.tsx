@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { FormProvider, Iconify, Image, Logo, RHFTextField } from '~/components';
-import { APP_IMAGES, STRINGS } from '~/constants';
+import { APP_IMAGES } from '~/constants';
 import { useLocales, useResponsive } from '~/hooks';
 import { PATH_AUTH } from '~/routes/path';
 
@@ -41,13 +41,13 @@ export default function SignIn() {
         <Logo />
         {isSmUp && (
           <Typography variant="body2" sx={{ mt: { lg: 1, md: -2 } }}>
-            {translate(STRINGS.authentication.doNotHaveAnAccount)}&nbsp;
+            {translate('authentication.doNotHaveAnAccount')}&nbsp;
             <Link
               variant="subtitle2"
               component={RouterLink}
               to={PATH_AUTH.register}
             >
-              {translate(STRINGS.getStarted)}
+              {translate('getStarted')}
             </Link>
           </Typography>
         )}
@@ -56,7 +56,7 @@ export default function SignIn() {
       {isMdUp && (
         <SectionStyle>
           <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            {translate(STRINGS.welcomeBack)}
+            {translate('welcomeBack')}
           </Typography>
           <Image alt="Sign In" src={APP_IMAGES.signIn} />
         </SectionStyle>
@@ -66,7 +66,7 @@ export default function SignIn() {
           <Stack direction="row" alignItems="center" sx={{ mb: 5 }}>
             <Box sx={{ flexGrow: 1 }}>
               <Typography variant="h4" gutterBottom>
-                {translate(STRINGS.authentication.signIn)}
+                {translate('authentication.signIn')}
               </Typography>
             </Box>
 
@@ -82,12 +82,12 @@ export default function SignIn() {
               {/* {Boolean(error) && <Alert severity="error">{error}</Alert>} */}
               <RHFTextField
                 name="email"
-                label={translate(STRINGS.formField.emailLabel)}
+                label={translate('formField.emailLabel')}
               />
 
               <RHFTextField
                 name="password"
-                label={translate(STRINGS.formField.passwordLabel)}
+                label={translate('formField.passwordLabel')}
                 type={isShowPassword ? 'text' : 'password'}
                 InputProps={{
                   endAdornment: (
@@ -120,7 +120,7 @@ export default function SignIn() {
                 variant="subtitle2"
                 to={PATH_AUTH.forgotPassword}
               >
-                {translate(STRINGS.authentication.forgotPassword)}
+                {translate('authentication.forgotPassword')}
               </Link>
             </Stack>
 
@@ -131,19 +131,19 @@ export default function SignIn() {
               variant="contained"
               loading={isSubmitting}
             >
-              {translate(STRINGS.authentication.signIn)}
+              {translate('authentication.signIn')}
             </LoadingButton>
           </FormProvider>
 
           {!isSmUp && (
             <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-              {translate(STRINGS.authentication.doNotHaveAnAccount)}&nbsp;
+              {translate('authentication.doNotHaveAnAccount')}&nbsp;
               <Link
                 variant="subtitle2"
                 component={RouterLink}
                 to={PATH_AUTH.register}
               >
-                {translate(STRINGS.getStarted)}
+                {translate('getStarted')}
               </Link>
             </Typography>
           )}

@@ -1,8 +1,8 @@
-import { Theme, ThemeOptions } from '@mui/material';
+import { Theme } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function Tabs(theme: Theme): ThemeOptions['components'] {
+export default function Tabs(theme: Theme) {
   return {
     MuiTab: {
       styleOverrides: {
